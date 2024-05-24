@@ -13248,6 +13248,10 @@ body.layout4 {
 .product-style1 .product-img img {
   width: 100%;
 }
+.product-img{
+    /* width:265px;
+    height:291px; */
+}
 .product-style1 .product-content {
   padding: 20px 30px 20px 30px;
 }
