@@ -3240,6 +3240,7 @@ a.text-theme:hover,
 .footer-social a:last-child {
   margin-right: 0;
 }
+
 .footer-social a.active, .footer-social a:hover {
   background-color: var(--theme-color);
   color: var(--white-color);
@@ -14019,3 +14020,15 @@ span.select2-selection.select2-selection--single:focus {
     top: -40px;
   }
 }
+
+
+.products-img{
+    display: flex;
+    height: 261px; /* Or whatever */
+    /* background-color: #000; */
+}
+.product-image{
+    width:291px;
+    height:261px;
+    margin: auto;  /* Magic! */
+ }
