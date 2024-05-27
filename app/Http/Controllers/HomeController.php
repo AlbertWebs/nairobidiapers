@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Redirect;
 use App\Models\Category;
 use App\Models\Product;
+use Cart;
 
 class HomeController extends Controller
 {
@@ -41,17 +43,37 @@ class HomeController extends Controller
     }
 
     public function products($slung){
-        $Category = Category::where('slung', $slung)->get();
+        $Cats = Category::where('slung', $slung)->get();
 
-        foreach($Category as $category){
+        foreach($Cats as $category){
             $Products = DB::table('products')->where('category_id',$category->id)->get();
             $title = $category->title;
         }
-        return view('front.products', compact('Products','title'));
+        return view('front.products', compact('Products','title','Cats'));
     }
 
-    public function addCart(Request $request){
-        $Product = Product::find($id);
-        Cart::add('293ad', $product->name, 1, $product->price, 1);
+    public function addToCart(Request $request){
+        $ProductId = $request->product_id;
+        $quantity = $request->quantity;
+        $Product = Product::find($ProductId);
+        Cart::add($Product->id, $Product->title, $quantity, $Product->price, $Product->id);
+        return Redirect::back();
+    }
+
+    public function remove($rowId){
+        Cart::remove($rowId);
+        return Redirect::back();
+    }
+
+    public function clearCart(){
+        Cart::destroy();
+        return Redirect::back();
+    }
+
+    public function shopping(){
+        $CartContents = Cart::content();
+        $title = "Shopping Cart";
+
+        return view('front.shopping-cart', compact('CartContents','title'));
     }
 }

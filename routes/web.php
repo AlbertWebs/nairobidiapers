@@ -14,6 +14,13 @@ Route::get('/wholesale', [App\Http\Controllers\HomeController::class, 'wholesale
 Route::get('/products/{category}', [App\Http\Controllers\HomeController::class, 'products'])->name('products');
 Route::get('/products/{category}/{slung}', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
 
+Route::get('/add-to-cart', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+Route::get('/shopping-cart', [App\Http\Controllers\HomeController::class, 'shopping'])->name('shopping-cart');
+Route::get('/remove-cart/{rowId}', [App\Http\Controllers\HomeController::class, 'remove'])->name('remove-cart');
+Route::get('/clear', [App\Http\Controllers\HomeController::class, 'clearCart'])->name('clearCart');
+
+
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');

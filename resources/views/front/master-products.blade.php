@@ -3,29 +3,31 @@
 
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    @foreach ($Cats as $Cat)
     <!-- Primary Meta Tags -->
-    <title>Nairobi Diapers | Quality Adult Diapers, Baby Diapers & Baby Wipes</title>
-    <meta name="title" content="Nairobi Diapers | Quality Adult Diapers, Baby Diapers & Baby Wipes">
-    <meta name="description" content="Nairobi Diapers offers high-quality adult diapers, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
+    <title>{{$Cat->title}} | Nairobi Diapers | Adult Diapers in Nairobi</title>
+    <meta name="title" content="{{$Cat->title}} | Nairobi Diapers | Adult Diapers in Nairobi">
+    <meta name="description" content="{{$Cat->title}} - Nairobi Diapers offers high-quality {{$Cat->title}}, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.nairobidiapers.com/">
-    <meta property="og:title" content="Nairobi Diapers | Quality Adult Diapers, Baby Diapers & Baby Wipes">
-    <meta property="og:description" content="Nairobi Diapers offers high-quality adult diapers, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
-    <meta property="og:image" content="https://www.nairobidiapers.com/images/nairobi-diapers-logo.png">
+    <meta property="og:url" content="{{url('/')}}/products/{{$Cat->slung}}">
+    <meta property="og:title" content="{{$Cat->title}} | Nairobi Diapers | Adult Diapers in Nairobi">
+    <meta property="og:description" content="{{$Cat->title}} - Nairobi Diapers offers high-quality {{$Cat->title}}, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
+    <meta property="og:image" content="{{url('/')}}/uploads/categories/{{$Cat->image}}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.nairobidiapers.com/">
-    <meta property="twitter:title" content="Nairobi Diapers | Quality Adult Diapers, Baby Diapers & Baby Wipes">
-    <meta property="twitter:description" content="Nairobi Diapers offers high-quality adult diapers, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
-    <meta property="twitter:image" content="https://www.nairobidiapers.com/images/nairobi-diapers-logo.png">
+    <meta property="twitter:url" content="{{url('/')}}/products/{{$Cat->slung}}">
+    <meta property="twitter:title" content="{{$Cat->title}} | Nairobi Diapers | Adult Diapers in Nairobi">
+    <meta property="twitter:description" content="{{$Cat->title}} - Nairobi Diapers offers high-quality {{$Cat->title}}, baby diapers, and baby wipes. Our products ensure maximum comfort, superior absorbency, and reliable protection.">
+    <meta property="twitter:image" content="{{url('/')}}/uploads/categories/{{$Cat->image}}">
 
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
@@ -35,6 +37,7 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
     <meta name="distribution" content="global">
+    @endforeach
 
     <!-- Favicons - Place favicon.ico in the root directory -->
     <link rel="shortcut icon" href="{{asset('theme/assets/img/favicon.ico')}}" type="image/x-icon">
@@ -102,23 +105,18 @@
             </div>
             <div class="vs-mobile-menu">
                 <ul>
-                    <li>
-                        <a href="{{url('/')}}">Home</a>
+                    <li class="menu-item-has-children v1">
+                        <a href="{{url('/')}}"><i class="fa fa-house"></i>Home</a>
                     </li>
 
+                    <?php
+                        $Cats = DB::table('categories')->get()
+                    ?>
+                    @foreach ($Cats as $c)
                     <li>
-                        <a href="{{url('/')}}">">Adult Diapers</a>
+                        <a href="{{url('/')}}/products/{{$c->slung}}">{{$c->title}}</a>
                     </li>
-                    <li>
-                        <a href="{{url('/')}}/">">Baby Diapers & Wipes</a>
-                    </li>
-                    <li>
-                        <a href="{{url('/')}}/wholesale">">Wholesale</a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('/')}}/about-us">About Us</a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -195,68 +193,7 @@
     <!--==============================
         Header Area
     ==============================-->
-    <header class="vs-header header-layout4">
-        <div class="header-top4">
-            <div class="container-style4">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-auto text-center">
-                        <div class="header-links v4 style2 style-white">
-                            <ul>
-                                <li><i class="fas fa-envelope"></i>Email: <a href="mailto:nairobidiapers.co.ke">info@nairobidiapers.co.ke</a></li>
-                                <li><i class="fas fa-mobile-alt"></i>Phone: <a href="tel:+4402076897888">+254 723 711637</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <div class="header-links v5 style-white">
-                            <ul>
-                                <li>
-                                    <ul class="social-links4">
-                                        <li><a href="https://web.facebook.com/nairobi.diapers.co.ke/"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="https://www.instagram.com/nairobi_diapers/"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="registration.html"><i class="far fa-user"></i>Login & Register</a></li>
-                                <!-- <li><a href="contact.html" class="searchBoxTggler"><i class="far fa-search"></i>Search Keyword</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sticky-wrap">
-            <div class="sticky-active">
-                <div class="container-style4">
-                    <div class="header-lower4">
-                        <div class="row gx-3 align-items-center justify-content-between">
-                            <div class="col-8 col-sm-auto">
-                                <div class="header-logo2">
-                                    <a href="{{url('/')}}">
-                                        <img style="" src="{{asset('theme/assets/img/logo.png')}}" alt="logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col">
-                                @include('front.nav')
-                            </div>
-                            <div class="col-auto  d-none d-lg-block">
-                                <div class="header-icons4">
-                                    <button class="simple-icon v2 searchBoxTggler"><i class="far fa-search"></i></button>
-                                    <a href="cart.html" title="" class="simple-icon cart"><i class="fa fa-shopping-bag"></i><span>12</span></a>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <a href="contact.html" class="vs-btn v4 sideMenuToggler">Registration</a>
-                            </div>
-                            <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    @include('front.header')
     <!--==============================
       Hero Area
     ==============================-->

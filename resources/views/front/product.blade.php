@@ -66,17 +66,21 @@ Product Details
                         <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">5</span> customer rating</span></div> (13)
                     </div> --}}
                     <p class="product-text">We think your skin should look and refshed matter Nourish your outer inner beauty with our essential oil infused beauty products Lorem ipsum dolor sit amet, consectetur.</p>
-                    <div class="actions">
-                        <div class="quantity">
-                            <label for="quantity" class="screen-reader-text">Quantity:</label>
-                            <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
-                            <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
-                            <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
+                    <form action="{{route('add-to-cart')}}">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                        <div class="actions">
+                            <div class="quantity">
+                                <label for="quantity" class="screen-reader-text">Quantity:</label>
+                                <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
+                                <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
+                                <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            <button type="submit" class="vs-btn">Add to Cart</button>
+                            <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            <a href="#" class="icon-btn"><i class="far fa-search"></i></a>
                         </div>
-                        <a href="cart.html" class="vs-btn">Add to Cart</a>
-                        <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
-                        <a href="#" class="icon-btn"><i class="far fa-search"></i></a>
-                    </div>
+                    </form>
                     <div class="product-getway">
                         <span class="getway-title">GUARANTEED SAFE CHECKOUT:</span>
                         <img src="{{asset('theme/assets/img/widget/cards-2.png')}}" alt="cards">
