@@ -122,7 +122,7 @@
                         <span class="product-price">kes {{$product->price_raw}} <del>kes {{$product->price}}</del></span>
                         @endif
 
-                        <h3 class="product-title" style="min-height:80px"><a class="text-inherit" href="{{url('/')}}products/{{$Category->slung}}/{{$product->slung}}">{{$product->title}}</a></h3>
+                        <h3 class="product-title" style="min-height:80px"><a class="text-inherit" href="{{url('/')}}/products/{{$Category->slung}}/{{$product->slung}}">{{$product->title}}</a></h3>
 
                         <div class="actions">
                             <a href="{{url('/')}}/products/{{$Category->slung}}/{{$product->slung}}" class="vs-btn"><i class="far fa-shopping-cart"></i>Shop Now</a>

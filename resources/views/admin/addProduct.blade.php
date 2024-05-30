@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="input-field col s6">
-                                    <select required name="category" class="icons" id="mydiv">
+                                    <select required name="brand" class="icons" id="mydiv">
                                         <option value="" disabled selected>Choose your Brand</option>
                                         @foreach ($Brand as $brand)
                                         <option value="{{$brand->id}}">{{$brand->title}}</option>
